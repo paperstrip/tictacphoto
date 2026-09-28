@@ -1,0 +1,28 @@
+// @Author: arnaudherr
+// @Date:   2018-09-05T09:16:32+02:00
+// @Last modified by:   arnaudherr
+// @Last modified time: 2019-01-23T08:11:29+01:00
+
+$breakpoints: (
+  mobile: "(max-width:576px)",
+  tablet: "(max-width:768px)",
+  laptop: "(max-width:992px)",
+  desktop: "(max-width:1200px)",
+  wide-screen: "(max-width:1300px)",
+
+  layout-change: "(max-width: 991px), all and (max-height:635px)",
+) !default;
+
+@mixin mq($breakpoint-name) {
+  $breakpoint-name: unquote($breakpoint-name);
+
+  @if map-has-key($breakpoints, $breakpoint-name) {
+    $query: map-get($breakpoints, $breakpoint-name);
+
+    @media all and #{$query} {
+      @content;
+    }
+  } @else {
+    @warn "#{$mq-name} is not a value defined in the 'breakpoints' map.";
+  }
+}

@@ -1,0 +1,249 @@
+.home-best-sales__heading{
+    .inner{
+        width: 50%;
+        @include mq('laptop'){
+            width: 100%;
+        }
+    }
+}
+.home-best-sales{
+    max-width: 100%;
+}
+.terms-grid{
+    
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 100%;
+        margin-left: calc(var(--margin)* -1);
+        margin-right: calc(var(--margin)* -1);
+
+    }
+    .terms-grid__item{
+        flex: 0 0 50%;
+        max-width: 50%;
+        &:nth-child(1){
+                padding-right: var(--margin);
+            a.terms-grp .cover-wrapper{
+                border-radius:0 50vw 50vw 0;
+                @include mq('laptop'){
+                    border-radius: 0;
+                }
+                
+            }               
+            @include mq('laptop'){
+                padding-right: 0;
+            }
+        }
+        &:nth-child(2){
+            padding-left: var(--margin);
+            @include mq('laptop'){
+                padding-left: 0;
+            }
+             a.terms-grp {
+                 .cover-wrapper{
+                    border-radius:50vw 0 0 50vw;
+                    @include mq('laptop'){
+                        border-radius: 0;
+                    }
+                } 
+                .content{
+                    justify-items: flex-end;
+                    align-items: flex-end;
+                    @include mq('laptop'){
+                        justify-items: flex-start;
+                        align-items: flex-start;
+                    }
+                }
+             }
+        }
+        @include mq('laptop'){
+            flex:0 0 100%;
+            max-width: 100%;
+        }
+        a.terms-grp{
+            display: block;
+            width: 100%;
+            position: relative;
+            color: var(--bg-color);
+            text-decoration: none;
+            &:hover{
+                img{
+                    opacity: .2;
+                }
+            }
+            .cover-wrapper{
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                top: 0;
+                left: 0;
+                transition:filter .3s $authenticMotion;
+                padding-bottom: 50%;
+                overflow: hidden;
+                background-color: var(--light-green);
+                img{
+                    position: absolute;
+                    overflow: hidden;
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transform: translate(-50%,-50%);
+                    transition: opacity .3s $authenticMotion;
+                }
+            }
+            .content{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: var(--margin) calc(var(--margin)*2);
+                color: var(--green);
+                @include mq('mobile'){
+                    padding: var(--margin) var(--margin);
+                }
+                .tag{
+                    color: var(--green);
+                    display: block;
+                }
+            }
+            &:hover{
+                .cover-wrapper{
+                    filter: grayscale(0);
+                    &:after{
+                        background-color:rgba(1,104,58,.6 );
+
+                    }
+                }
+            }
+        }
+        .related-products{
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: var(--margin);
+            @include mq('tablet'){
+                overflow: auto;
+                flex-wrap: nowrap;
+                margin-bottom: var(--margin);
+            }
+            .related-products__item{
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding:0 5px;
+                @include mq('tablet'){
+                    flex: 0 0 75vw;
+                    max-width: 75vw;
+                    padding: 0 var(--margin);
+                }
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: var(--green);
+                    .cover-wrapper{
+                        overflow: hidden;
+                        width: 100%;
+                        padding-bottom: 67%;
+                        position: relative  ;
+                        top: 0;
+                        left: 0;
+                        background-color: var(--light-green);
+                        border-radius: 5px;
+                        .tag{
+                            position: absolute;
+                            left: auto;
+
+                            top: 5px;
+                            right: 5px;
+                            padding: 6px 10px;
+                            border-radius: 40px;
+                            background-color: var(--green);
+                            color:var(--bg-color);
+                            font-size: 0.875rem;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            letter-spacing: 1.68px;
+                            text-transform: uppercase;
+                            display: inline-block;
+                            z-index: 2;                        
+                        }
+                        .btn{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%,-50%);
+                            opacity: 0;
+                            z-index: 3;
+                            transition: opacity .3s $authenticMotion;
+                            white-space: nowrap;
+                        }
+                      
+                        img{
+                            position: absolute;
+                            overflow: hidden;
+                            top: 50%;
+                            left: 50%;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            transform: translate(-50%,-50%);
+                            transition: opacity .3s $authenticMotion;
+                        }
+                    }
+                    &:hover{
+                        .cover-wrapper{
+                            .btn{
+                                opacity: 1  ;
+                            }
+                            img{
+                                opacity: .2;
+                            }
+                        }
+                    }
+                    .content{
+                        display: flex;
+                        padding: 10px var(--margin);
+                        justify-content: space-between;
+                        h3 {
+                            color: #01683A;
+                            font-size: 1rem;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            text-transform: uppercase;
+                            margin: 0;
+                            padding: 0  ;
+                            padding-right: 5px;
+                        
+                        }
+                        p{
+                         
+                            font-size: .875rem;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                            text-transform: uppercase;
+                            margin: 0;
+                            padding: 0;
+
+                            span{
+                                font-weight: 300;
+                                font-size: .75rem;
+                                margin-right: 5px;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

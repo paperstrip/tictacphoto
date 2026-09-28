@@ -1,0 +1,49 @@
+@mixin fluid-type(
+  $min-vw, 
+  $max-vw, 
+  $min-value, 
+  $max-value, 
+  $min-letter-spacing: null, 
+  $max-letter-spacing: null
+) {
+  $factor: calc(1 / ($max-vw - $min-vw) * ($max-value - $min-value));
+  $calc-value: unquote(
+    "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
+  );
+
+  font-size: $min-value;
+
+  @media screen and (min-width: #{ $min-vw }) {
+    font-size: calc(#{$calc-value});
+  }
+
+  @media screen and (min-width: #{ $max-vw }) {
+    font-size: $max-value;
+  }
+
+  @if $min-letter-spacing != null and $max-letter-spacing != null {
+    $letter-spacing-factor: calc(1 / ($max-vw - $min-vw) * ($max-letter-spacing - $min-letter-spacing));
+    $calc-letter-spacing: unquote(
+      "#{ $min-letter-spacing - ($min-vw * $letter-spacing-factor) } + #{ 100vw * $letter-spacing-factor }"
+    );
+
+    letter-spacing: $min-letter-spacing;
+
+    @media screen and (min-width: #{ $min-vw }) {
+      letter-spacing: calc(#{$calc-letter-spacing});
+    }
+
+    @media screen and (min-width: #{ $max-vw }) {
+      letter-spacing: $max-letter-spacing;
+    }
+  }
+}
+
+@mixin delay($rule, $number, $value) {
+  @for $i from 1 to ($number + 1) {
+    &:nth-child(#{$number}n + #{$i}) {
+      -webkit-#{$rule}-delay: (#{$i * $value});
+      #{$rule}-delay: (#{$i * $value});
+    }
+  }
+}

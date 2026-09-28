@@ -1,0 +1,79 @@
+.pagination{
+    width: 100%;
+    padding: var(--margin);
+    .pagination__inner{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        .prev{
+            margin-right: calc(var(--margin)*4);
+            &:after{
+                display: none;
+            }
+        }
+        .next{
+            margin-left: calc(var(--margin)*4);
+            &:after{
+                display: none;
+            }
+        }
+        .page-numbers:not(.prev),.page-numbers:not(.next){
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: uppercase;
+            color: var(--green);
+            display:inline-block;
+            padding: var(--margin);
+
+            &.current{
+                opacity: .3;
+            }
+
+        }
+       
+    }
+    .project-prev,.project-next{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-style: normal;
+       
+        flex:  0 0 50%;
+        max-width: 50%;
+        a{
+            color: var(--green);
+            font-weight: 400;
+            line-height: 120%; /* 16.8px */
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: .875rem;
+
+        }
+        @include mq('tablet'){
+            display: none;
+        }
+
+    }
+    .project-prev{
+        margin-right: auto;
+        margin-left: 0;
+        justify-content: flex-start;
+        svg{
+            margin-right: 5px;
+        }
+    }
+    .project-next{
+        margin-right: 0;
+        margin-left: auto;
+        text-align: right;
+        justify-content: flex-end;
+
+        svg{
+            margin-left: 5px;
+        }
+    }
+}

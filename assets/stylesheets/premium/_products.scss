@@ -1,0 +1,10 @@
+.premium-products{
+    .premium-products__heading{
+        h2{
+            width: 75%;
+            @include mq('laptop'){
+                width: 100%;
+            }
+        }
+    }
+}

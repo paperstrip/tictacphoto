@@ -1,0 +1,110 @@
+.premium-products{
+    max-width: 100%;
+}
+
+.gamme-grid{
+    .row{
+        min-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: calc(var(--margin)* -0);
+        margin-right: calc(var(--margin)* -0);
+        @include mq('tablet'){
+            overflow: auto;
+            flex-wrap: nowrap;
+        }
+        .gamme-item{
+            padding: calc(var(--margin)*1);
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            display: flex;
+            flex-wrap: wrap;
+            
+            @include mq('laptop'){
+                flex:  0 0 50%;
+                max-width: 50%;
+            }
+            @include mq('tablet'){
+                width: 75vw;
+                flex: 0 0 75vw;
+                max-width: 75vw;
+                margin-right: 5px;
+                border: solid 1px var(--green);
+                
+            }
+            @include mq('mobile'){
+                width: 80vw;
+                flex: 0 0 80vw;
+                max-width: 80vw;
+            }
+            .gamme-item__heading{
+                flex: 1;
+                display: block;
+                padding: var(--margin);
+                color: var(--bg-color);
+                border-radius: 20px 0 20px 0;
+                overflow: hidden;
+                background-color: var(--green);
+                position: relative;
+                text-align: center;
+                width: 100%;
+                align-self: flex-start;
+                h3{
+                    font-size: 1.75rem;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: -0.07rem;
+                    text-transform: uppercase;
+                    margin: 0;
+                    padding: 0;
+                }
+                &::before{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    content: "";
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    background: url('../assets/images/noise-bg.jpg');
+                    z-index: 1;
+                    background-size: cover;
+                    background-position: center;
+                    opacity: .5;
+                    mix-blend-mode: screen;
+        
+                }
+            }
+            .gamme-item__content{
+                padding: var(--margin) calc(var(--margin)*0.5);
+                width: 100%;
+                p{
+                    padding: 0;
+                    line-height: 150%;
+                    padding-left: 26px;
+                    position: relative;
+
+                    &:before{
+                        content: "";
+                        display: block;
+                        width: 6px;
+                        height:6px;
+                        background-color:var(--green);
+                        display: block;
+                        position: absolute;
+                        top: calc(1.285rem / 1.5);
+                        left: 0;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            .gamme-item__footer{
+                margin-bottom: 0;
+                margin-top: auto;
+            }
+        }
+
+    }
+}
+

@@ -1,0 +1,68 @@
+.team-grid{
+    padding: 0 calc(var(--margin)*4);
+    @include mq('laptop'){
+        padding: 0;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 100%;
+        margin-left: calc(var(--margin)* -0.5);
+        margin-right: calc(var(--margin)* -0.5);
+
+     
+        .team-grid__item{
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            padding:  calc(var(--margin) * 0.5);;
+            @include mq('tablet'){
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding:  calc(var(--margin) * 0.5);;
+
+            }
+            .cover-wrapper{
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                overflow: hidden;
+                padding-bottom: 100%;
+                margin-bottom:20px;
+                border-radius: 5px;
+
+                img{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transform: translate(-50%,-50%);
+                }
+               
+            }
+            h3{
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
+                padding:0 ;
+                margin: 0;
+               
+            }
+            p{
+                text-transform: uppercase;
+                letter-spacing: 1.68px;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 10px;
+                font-weight: 300;
+                line-height: normal;
+
+
+            }
+        }
+    }
+}

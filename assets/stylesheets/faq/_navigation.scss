@@ -1,0 +1,18 @@
+.container-faq-navigation{
+    padding-bottom: 0;
+}
+.faq-navigation{
+    padding: 0 calc(var(--margin)*4);
+    @include mq('tablet'){
+        padding: 0;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -10px;
+        margin-right: -10px;
+        .faq-filter{
+            margin: 10px;
+        }
+    }
+}

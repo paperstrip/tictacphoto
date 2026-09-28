@@ -1,0 +1,100 @@
+.home-about{
+    .home-about__wrapper{
+        position: relative;
+        width: 100%;
+        margin-bottom:calc(var(--margin)*2);
+        &::before{
+            content: "";
+            width: 36px;
+            height: 36px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-left-radius: 4px;
+            border-top:solid 2px var(--green);
+            border-left: solid 2px var(--green);
+        }
+        &::after{
+            content: "";
+            width: 36px;
+            height: 36px;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-bottom-right-radius: 4px;
+            border-bottom:solid 2px var(--green);
+            border-right: solid 2px var(--green);
+        }
+        .gallery-grp{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 10px;
+            &:nth-child(2){
+                margin-bottom: calc(var(--margin)*2);
+            }
+            &:nth-child(4){
+                margin-top: calc(var(--margin)*2);
+            }
+            img{
+                width: auto;
+                height: calc(var(--margin)*4);
+                @include mq('mobile'){
+                    height: calc(var(--margin)*2);
+                }
+                &:nth-child(1){
+                    border-radius: 10px 0 0 10px;
+                }
+                 &:last-child{
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+        }
+    }
+    .home-about__heading{
+        padding-right: calc(var(--margin)* 4);
+        @include mq('tablet'){
+            padding-right: 0;
+            padding-top: 0;
+        }
+        .inner{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .label{
+                display: inline-block;
+                color: var(--green);
+                margin-bottom: var(--margin);
+                padding: 10px 20px;
+                border: solid 1px var(--green);
+                border-radius: 40px;
+                font-size: 1.125rem;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                letter-spacing: 2.16px;
+                text-transform: uppercase;
+                margin: auto;
+                @include mq('laptop'){
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .content{
+        text-align: center;
+        .big-title{
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn{
+            margin-top: var(--margin);
+        }
+    }
+
+   
+}

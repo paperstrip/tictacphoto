@@ -1,0 +1,118 @@
+// Built from https://css-tricks.com/snippets/css/using-font-face/
+@mixin font-face(
+  $font-name,
+  $font-path,
+  // path + file name. Ex : path/to/font/filename
+  $font-weight: 400,
+  $font-style: normal,
+  $support-required: "modern"
+) {
+  @font-face {
+    font-family: $font-name;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-display: swap;
+    @if $support-required== "oldie" {
+      src: url("#{$font-path}.eot");
+      src: url("#{$font-path}.eot?#iefix") format("embedded-opentype"),
+        url("#{$font-path}.woff") format("woff"),
+        url("#{$font-path}.ttf") format("truetype");
+    }
+    @if $support-required== "recent" {
+      src: url("#{$font-path}.woff") format("woff"),
+        url("#{$font-path}.ttf") format("truetype");
+    }
+    @if $support-required== "modern" {
+      src: url("#{$font-path}.woff2") format("woff2");
+    }
+  }
+  @if $support-required !=
+    "oldie" and
+    $support-required !=
+    "recent" and
+    $support-required !=
+    "modern"
+  {
+    @error 'Invalid support-required value. Must be "oldie"==>IE8 and above/ Android native browser 4+/ Safari 4.3 OR "recent"==>IE9+/ Android native browser 4.0+/ Safari 4.3+ OR "modern"==>IE9+/ Android native browser 4.4+/ Safari 5.1+';
+  }
+}
+
+.wide-title {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 24px;
+  line-height: 112%; /* 94.08px */
+  text-transform: uppercase;
+  @include fluid-type(576px, 1440px, 20px, 40px,9px,18px);
+}
+
+
+.large-title {
+  margin: 0;
+  padding: 0;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  line-height: 120%; /* 94.08px */
+  text-align: left;
+  text-transform: uppercase;
+  @include fluid-type(576px, 1440px, 28px, 64px);
+
+}
+
+.tag{
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+}
+
+
+.big-title {
+
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 6;
+  line-height: 90.625%;
+  @include fluid-type(768px, 1440px, 28px, 52px);
+  margin: 0;
+
+}
+
+.medium-title{
+  font-size: 24px;
+  @include fluid-type(768px, 1440px, 18px, 24px);
+  font-style: normal;
+  font-weight: 300;
+  line-height:  116.667%;
+}
+
+*:not(img)::selection {
+  background-color: var(--red);
+  color: var(--bg-color);
+  opacity: 1;
+}
+
+
+h2{
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 90.625%;
+  @include fluid-type(768px, 1440px, 24px, 52px);
+  margin: 0;
+
+
+}
+
+
+*:not(img)::selection {
+  background-color: var(--color);
+  color: var(--bg-color);
+  opacity: 1;
+}
+

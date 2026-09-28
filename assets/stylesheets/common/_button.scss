@@ -1,0 +1,249 @@
+
+.btn{
+  font-family: "gill-sans-nova", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  appearance: none;
+  border: none;
+  text-align: none;
+  border-radius: 40px;
+  padding: 8px 16px;
+  padding-right: 42px;
+  position: relative;
+  transition:color .3s $authenticMotion,background-color .3s $authenticMotion;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+   min-height: 48px;
+  align-items: center;
+  @include mq('mobile'){
+    font-size: 13px;
+    min-height: 48px;
+    align-items: center;
+  }
+  
+  svg{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    path{
+      stroke:var(--bg-color);
+      transition:stroke .3s $authenticMotion;
+
+    }
+  }
+  &:hover{
+    cursor: pointer;
+  }
+  &:after{
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    content: "";
+    display:block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: solid 1px transparent;
+    transition:border-color .3s $authenticMotion;
+    border-radius: 40px;
+
+
+  }
+  &--no-arrow{
+    padding-right: 16px;
+    
+
+  }
+  &--light-green{
+    background-color: var(--light-green);
+    color:var(--green);
+    &:after{
+        border-color: var(--light-green);
+
+    }
+    svg path{
+          stroke:var(--green)
+      }
+    &:hover{
+      background-color: var(--bg-color);
+      &::after{
+        border-color: var(--green);
+      }
+
+    }
+  }
+  &--orange{
+    background-color: var(--orange);
+    color:var(--bg-color);
+    &:after{
+        border-color: var(--orange);
+
+    }
+    svg path{
+          stroke:var(--bg-color);
+    }
+    &:hover{
+      background-color: var(--bg-color);
+      color: var(--orange);
+      &::after{
+        border-color: var(--orange);
+      }
+      svg path{
+          stroke:var(--orange);
+      }
+
+    }
+  }
+  &--new-project{
+    svg path{
+          stroke:transparent;
+          fill:var(--bg-color);
+    }
+    &:hoverr{
+      svg path{
+        fill:var(--orange);
+      }
+    }
+  }
+  &--rounded{
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.135rem;
+    text-transform: uppercase;
+    border-radius: 40px;
+    border: solid 1px var(--green);
+    color: var(--green);
+    background-color: transparent;
+    padding: 6px 20px;
+    &:hover{
+      background-color: var(--green);
+      color: var(--bg-color);
+    }
+  }
+  &--green{
+    background-color: var(--green);
+    color: var(--bg-color);
+
+    &:after{
+      border-color: var(--green);
+    }
+    &:hover{
+      background-color: var(--bg-color);
+      color: var(--green);
+      svg path{
+        stroke:var(--green);
+      }
+    }
+  }
+  &--simple{
+    background-color: transparent;
+    color: var(--green);
+    svg path{
+      stroke:var(--green);
+    }
+    &:after{
+      border-color: var(--green);
+    }
+    &:hover{
+      background-color: var(--green);
+      color: var(--bg-color);
+      svg path{
+        stroke:var(--bg-color);
+      }
+    }
+  }
+  &--white-border{
+    &:after{
+      border-color: var(--bg-color);
+    }
+  }
+  &--transparent{
+    background-color: transparent;
+    
+  }
+  &--white{
+    background-color: var(--bg-color);
+    color: var(--green);
+    &:after{
+      border-color: var(--bg-color);
+    }
+    svg path{
+          stroke:var(--green)
+    }
+    &.btn--transparent{
+      background-color: transparent;
+      color: var(--bg-color);
+       svg path{
+          stroke:var(--bg-color)
+        }
+      &:hover{
+        background-color: var(--bg-color);
+        color: var(--green);
+        svg path{
+          stroke:var(--green)
+        }
+      }
+    }
+  }
+
+
+  
+}
+
+
+.cta{
+  color: var(--green);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-transform: uppercase; 
+  appearance: none;
+  border: none;
+  outline: none;
+  display: inline-block;
+  background:none;
+}
+
+.btn-bullet{
+  appearance: none;
+  width: 48px;
+  height: 48px;
+  background-color: var(--light-green);
+  border: solid 1px var(--light-green);
+  appearance: none;
+  color: var(--bg-color);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .3s $authenticMotion;
+  box-shadow: 0px 0px 10px  var(--light-green);
+
+  svg path{
+    fill:var(--green);
+    transition:fill .3s $authenticMotion;
+
+  }
+  &:hover{
+    cursor: pointer;
+    background-color: var(--bg-color);
+    svg path{
+      fill:var(--green)
+    }
+  }
+  &.active{
+    background-color: var(--bg-color);
+    svg path{
+      fill:var(--green)
+    }
+  }
+}
